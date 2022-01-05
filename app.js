@@ -119,12 +119,10 @@ function addToTable(){
     tbody.innerHTML += output
 
     const details ={addedNames, addedZipcode, addedEmail, addedPhone}
-    let tasks
-    localStorage.getItem("details") === null?tasks=[] :tasks=JSON.parse(localStorage.getItem("details"))
-    tasks.forEach((task)=>{
-        console.log(task)
+    const trappedDetails = displayTrapped()
+    const data = [...trappedDetails, details]
     })
-    saveToLocalStorage()
+    saveToLocalStorage(data)
 }
 function clearFields(){
     names.value= ""
